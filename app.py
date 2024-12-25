@@ -25,6 +25,7 @@ MQTT_USERNAME = os.getenv('MQTT_USERNAME')
 MQTT_PASSWORD = os.getenv('MQTT_PASSWORD')
 MQTT_KEEPALIVE = int(os.getenv('MQTT_KEEPALIVE', 60))
 MQTT_VERSION = os.getenv('MQTT_VERSION', '3.1.1')
+CORS_ALLOWED_ORIGINS = [d for d in os.getenv('CORS_ALLOWED_ORIGINS', '').split(",") if len(d) > 0]
 
 # Set up logging
 log_level = logging.DEBUG if DEBUG else logging.INFO
@@ -36,7 +37,7 @@ if not DEBUG:
 
 app = Flask(__name__, static_url_path='/static')
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'your-secret-key')
-socketio = SocketIO(app, async_mode='threading')
+socketio = SocketIO(app, async_mode='threading', cors_allowed_origins=CORS_ALLOWED_ORIGINS)
 
 MQTT_RC_CODES = {
     0: "Connection successful",
