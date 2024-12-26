@@ -8,5 +8,5 @@ if [ "$DEBUG" = "True" ] || [ "$DEBUG" = "1" ] || [ "$DEBUG" = "true" ]; then
     exec python -c "from app import app, socketio; socketio.run(app, host='0.0.0.0', port=$PORT, debug=True)"
 else
     echo "Running in PRODUCTION mode"
-    exec gunicorn --worker-class eventlet -w 1 -b "0.0.0.0:$PORT" app:app
+    exec gunicorn --worker-class gevent -w 1 -b "0.0.0.0:$PORT" app:app
 fi
