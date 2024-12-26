@@ -5,7 +5,7 @@ from flask_socketio import SocketIO
 import paho.mqtt.client as mqtt
 from datetime import datetime
 import os
-from debug_bar import debug_bar, debug_bar_middleware
+from app.debug_bar import debug_bar, debug_bar_middleware
 import logging
 import time
 from dotenv import load_dotenv
