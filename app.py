@@ -1,7 +1,7 @@
 __version__ = "1.3.0"
 
 from flask import Flask, render_template, request, jsonify, send_from_directory
-from flask_socketio import SocketIO, emit
+from flask_socketio import SocketIO
 import paho.mqtt.client as mqtt
 from datetime import datetime
 import os
@@ -10,7 +10,6 @@ import logging
 import time
 from dotenv import load_dotenv
 from logging.handlers import RotatingFileHandler
-from werkzeug.serving import run_simple
 
 # Load environment variables
 load_dotenv()
