@@ -9,7 +9,8 @@ RUN apt-get update && apt-get install -y \
 ENV PATH="$PATH:/root/.local/bin"
 
 WORKDIR /app
-COPY app pyproject.toml poetry.lock ./
+COPY app/ ./app/
+COPY pyproject.toml poetry.lock ./
 
 RUN pipx install poetry
 RUN poetry install
