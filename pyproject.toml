@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "mqttui"
+version = "1.3.1"
+description = "MQTT Web Interface, a lightweight, open-source tool for real-time MQTT visualization!"
+authors = ["Jacques Supcik <jacques@supcik.net>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+flask = "^3.1.0"
+flask-socketio = "^5.5.0"
+paho-mqtt = "^2.1.0"
+psutil = "^6.1.1"
+python-dotenv = "^1.0.1"
+gunicorn = "^23.0.0"
+eventlet = "^0.38.2"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.10.0"
+ruff = "^0.8.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
